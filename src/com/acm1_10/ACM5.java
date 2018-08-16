@@ -1,32 +1,36 @@
 package com.acm1_10;
 
-import java.util.Scanner;
-
 /*题目描述：
-* 输入一个正整数，按照从小到大的顺序输出它的所有质数的因子
-* （如180的质数因子为2 2 3 3 5 ）最后一个数后面也要有空格。
-* */
+ *写出一个程序，接受一个十六进制的数值字符串，输出该数值的十进制字符串。
+ *  */
+
+import java.util.Scanner;
 
 public class ACM5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        long l = scanner.nextLong();
-        scanner.close();
-        getResult(l);
+        while (scanner.hasNext()) {
+            String string = scanner.next();
+            System.out.println(hexToDec(string.substring(2)));
+        }
     }
 
-    private static void getResult(long l) {
-        long temp = 1;
-        long i;
-        while (temp < l) {
-            i = 2;
-            while (temp * i <= l && l % (temp * i) != 0) {
-                i++;
-            }
-            temp = temp * i;
-            if (temp <= l) {
-                System.out.print(i + " ");
-            }
+    private static int hexToDec(String string) {
+        int base = 16;
+        int dec = charToDec(string.charAt(string.length() - 1));
+        for (int i = string.length() - 2; i >= 0; i--) {
+            dec += charToDec(string.charAt(i)) * base;
+            base *= 16;
         }
+        return dec;
+    }
+
+    private static int charToDec(char ch) {
+        if (ch >= 'A' && ch <= 'F') {
+            return ch - 'A' + 10;
+        } else if (ch >= 'a' && ch <= 'f') {
+            return ch - 'a' + 10;
+        }
+        return ch - 48;
     }
 }
