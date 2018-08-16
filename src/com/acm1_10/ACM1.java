@@ -1,7 +1,6 @@
 package com.acm1_10;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Scanner;
 
 /* 题目描述：
