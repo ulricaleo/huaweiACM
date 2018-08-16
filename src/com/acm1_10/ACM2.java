@@ -15,6 +15,7 @@ public class ACM2 {
         Scanner scanner = new Scanner(System.in);
         char[] chars = scanner.next().toCharArray();
         char ch = scanner.next().charAt(0);
+        scanner.close();
         int count = 0;
         for (char c : chars) {
             if (ch - c == 0|| ch -c == -32 || ch - c == 32) {

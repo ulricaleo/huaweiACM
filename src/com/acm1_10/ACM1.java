@@ -15,6 +15,7 @@ public class ACM1 {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         char[] chars = scanner.nextLine().toCharArray();
+        scanner.close();
         int count = 0;
         for (int i = chars.length - 1; i >= 0; i--) {
             if (chars[i] != ' ') {
